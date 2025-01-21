@@ -5,7 +5,7 @@ This project sets up a secure infrastructure on AWS using Terraform. It includes
 ## Directory Structure
 
 ```
-Vertex-Phase-3-Module/
+Terraform-Project-Module/
 ├── alb/
 │   ├── main.tf
 │   ├── outputs.tf
