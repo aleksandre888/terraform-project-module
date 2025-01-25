@@ -45,7 +45,7 @@ module "ec2" {
 module "alb" {
   source         = "./alb"
   alb_sg_id      = module.security.alb_sg_id
-  default_sg_id  = data.aws_security_group.default.id
+  default_sg_id  = module.vpc.default_sg_id
   vpc_id         = module.vpc.vpc_id
   ec2_instances  = module.ec2.ec2_instances
   public_subnets = module.vpc.public_subnet_ids

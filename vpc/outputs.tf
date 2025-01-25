@@ -27,3 +27,17 @@ output "private_subnet_cidrs" {
   description = "The CIDR blocks of the private subnets"
   value       = [for subnet in aws_subnet.private_subnets : subnet.cidr_block]
 }
+
+data "aws_security_group" "default" {
+  vpc_id = aws_vpc.private_vpc.id
+
+  filter {
+    name   = "group-name"
+    values = ["default"]
+  }
+}
+
+output "default_sg_id" {
+  description = "The ID of the default security group"
+  value       = data.aws_security_group.default.id
+}
